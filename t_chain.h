@@ -3,9 +3,8 @@
 class Chain {
     public:
         Chain();
-        ~Chain();
-        void addTransaction(Transaction new_transaction);
-        Transaction findTransaction(std::string sender_name);
+        void addTransaction(int amount, std::string sender, std::string receiver);
+        void findTransaction(std::string sender_name);
         bool verifyAndPrint();
     private:
         Transaction* head;

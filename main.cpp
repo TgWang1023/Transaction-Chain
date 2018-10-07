@@ -1,10 +1,12 @@
 #include <iostream>
+#include "t_chain.h"
 
 using namespace std;
 
 int main() {
     cout << "Welcome to FakeCoin transaction-chain terminal!" << endl;
     cout << "Please select the action that you would like to perform today" << endl;
+    Chain* t_chain = new Chain();
 
     while(1) {
         cout << "-------------------------" << endl;
