@@ -17,8 +17,12 @@ void Chain::findTransaction(std::string sender_name) {
 }
 
 bool Chain::verifyAndPrint() {
-    for (Transaction* runner = head; runner != NULL; runner = runner->getNext()) {
-        runner->printTransaction();
+    if (head == NULL) {
+        std::cout << "There are no transactions in the chain." << std::endl;
+    } else {
+        for (Transaction* runner = head; runner != NULL; runner = runner->getNext()) {
+            runner->printTransaction();
+        }
     }
     return true;
 }

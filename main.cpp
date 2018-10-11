@@ -19,15 +19,28 @@ int main() {
         char selected_case;
         cin >> selected_case;
 
+        int amount;
+        string sender;
+        string receiver;
+
         switch(selected_case) {
             case '1':
-                cout << "This is case 1" << endl;
+                cout << "Please enter the amount you would like to transfer:" << endl;
+                cin >> amount;
+                cout << "Please enter your name:" << endl;
+                cin >> sender;
+                cout << "Please enter the receiver's name:" << endl;
+                cin >> receiver;
+                t_chain->addTransaction(amount, sender, receiver);
+                cout << "Transaction added." << endl;
                 break;
             case '2':
                 cout << "This is case 2" << endl;
                 break;
             case '3':
-                cout << "This is case 3" << endl;
+                cout << "\n\n\n-------------END OF CHAIN-------------" << endl;
+                t_chain->verifyAndPrint();
+                cout << "----------BEGINNING OF CHAIN----------\n\n\n" << endl;         
                 break;
             case '0':
                 cout << "Goodbye" << endl;

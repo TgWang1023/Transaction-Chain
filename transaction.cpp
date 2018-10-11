@@ -16,8 +16,13 @@ Transaction* Transaction::getNext() {
 }
 
 void Transaction::printTransaction() {
-    std::cout << "-------------" << std::endl;
+    std::cout << "===============" << std::endl;
     std::cout << "Transaction amount: " << this->amount << std::endl;
     std::cout << "Sender: " << this->sender << std::endl;
     std::cout << "Receiver: " << this->receiver << std::endl;
+    std::cout << "===============" << std::endl;
+    std::cout << "       |       " << std::endl;
+    std::cout << "       |       " << std::endl;
+    std::cout << "       |       " << std::endl;
+    std::cout << "       V       " << std::endl;
 }
