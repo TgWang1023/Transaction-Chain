@@ -25,6 +25,7 @@ int main() {
 
         switch(selected_case) {
             case '1':
+                // TODO: FIX AMOUNT TAKING IN ONLY AND DEAL WITH SPACES FOR NAMES!
                 cout << "Please enter the amount you would like to transfer:" << endl;
                 cin >> amount;
                 cout << "Please enter your name:" << endl;

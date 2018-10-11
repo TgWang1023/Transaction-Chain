@@ -1,4 +1,5 @@
 #include "t_chain.h"
+#include "picosha2.h"
 
 Chain::Chain() {
     this->head = NULL;
@@ -34,6 +35,22 @@ bool Chain::verifyAndPrint() {
     if (head == NULL) {
         std::cout << "There are no transactions in the chain." << std::endl;
     } else {
+        // VERIFICATION
+        for (Transaction* runner = head; runner != NULL; runner = runner->getNext()) {
+            if (runner->getNext() != NULL) {
+                std::string src = std::to_string(runner->getNext()->getAmount()) + runner->getNext()->getSender() + runner->getNext()->getReceiver() + runner->getNext()->getNonce();
+                std::string hash;
+                picosha2::hash256_hex_string(src, hash);
+                if (runner->getHash() != hash) {     
+                    std::cout << "Verification Error" << std::endl;
+                    runner->printTransaction();
+                    runner->getNext()->printTransaction();
+                    return false;
+                }
+            }
+        }
+
+        // PRINT
         for (Transaction* runner = head; runner != NULL; runner = runner->getNext()) {
             runner->printTransaction();
             std::cout << "       |       " << std::endl;
