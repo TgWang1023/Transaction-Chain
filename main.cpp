@@ -36,7 +36,7 @@ int main() {
                 cout << "Transaction added." << endl;
                 break;
             case '2':
-                cout << "Please enter your name:" << endl;
+                cout << "Please enter the sender's name:" << endl;
                 cin >> sender;
                 cout << "\n\n\n--------------------------------------" << endl;
                 t_chain->findTransaction(sender);

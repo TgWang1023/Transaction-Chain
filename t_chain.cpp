@@ -26,7 +26,7 @@ void Chain::findTransaction(std::string sender_name) {
             }
         }
         if (!t_exist) {
-            std::cout << "No transactions with your name found" << std::endl;
+            std::cout << "No transactions with this sender's name found" << std::endl;
         }
     }
 }
