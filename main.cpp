@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    cout << "Welcome to FakeCoin transaction-chain terminal!" << endl;
+    cout << "\n\n\nWelcome to FakeCoin transaction-chain terminal!" << endl;
     cout << "Please select the action that you would like to perform today" << endl;
     Chain* t_chain = new Chain();
 
@@ -15,35 +15,42 @@ int main() {
         cout << "3: Verify and print the transaction-chain" << endl;
         cout << "0: Exit" << endl;
         cout << "-------------------------" << endl;
+        cout << "Choice: ";
 
         char selected_case;
         cin >> selected_case;
 
-        int amount;
+        string amount;
         string sender;
         string receiver;
+        string find;
 
         switch(selected_case) {
             case '1':
-                // TODO: FIX AMOUNT TAKING IN ONLY AND DEAL WITH SPACES FOR NAMES!
                 cout << "Please enter the amount you would like to transfer: ";
-                while(!(cin >> amount)) {
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "Only integer amounts are allowed. Try again: ";
+                cin.ignore();
+                getline(cin, amount);
+                while (cin.fail() || cin.eof() || amount.find_first_not_of("0123456789") != string::npos) {
+                    cout << "Only integer values are allowed. Try again: ";
+                    if (amount.find_first_not_of("0123456789") == string::npos) {
+                        cin.clear();
+                        cin.ignore(256,'\n');
+                    }
+                    getline(cin, amount);
                 }
                 cout << "Please enter your name: ";
-                cin >> sender;
+                getline(cin, sender);
                 cout << "Please enter the receiver's name: ";
-                cin >> receiver;
-                t_chain->addTransaction(amount, sender, receiver);
+                getline(cin, receiver);
+                t_chain->addTransaction(stoi(amount), sender, receiver);
                 cout << "Transaction added.\n\n\n" << endl;
                 break;
             case '2':
-                cout << "Please enter the sender's name:" << endl;
-                cin >> sender;
+                cout << "Please enter the sender's name: ";
+                cin.ignore();
+                getline(cin, find);
                 cout << "\n\n\n--------------------------------------" << endl;
-                t_chain->findTransaction(sender);
+                t_chain->findTransaction(find);
                 cout << "--------------------------------------\n\n\n" << endl;    
                 break;
             case '3':
