@@ -21,8 +21,4 @@ void Transaction::printTransaction() {
     std::cout << "Sender: " << this->sender << std::endl;
     std::cout << "Receiver: " << this->receiver << std::endl;
     std::cout << "===============" << std::endl;
-    std::cout << "       |       " << std::endl;
-    std::cout << "       |       " << std::endl;
-    std::cout << "       |       " << std::endl;
-    std::cout << "       V       " << std::endl;
 }
