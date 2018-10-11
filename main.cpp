@@ -11,7 +11,7 @@ int main() {
     while(1) {
         cout << "-------------------------" << endl;
         cout << "1: Add a new transaction" << endl;
-        cout << "2: Find a transaction" << endl;
+        cout << "2: Find transactions" << endl;
         cout << "3: Verify and print the transaction-chain" << endl;
         cout << "0: Exit" << endl;
         cout << "-------------------------" << endl;
