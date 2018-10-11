@@ -26,14 +26,18 @@ int main() {
         switch(selected_case) {
             case '1':
                 // TODO: FIX AMOUNT TAKING IN ONLY AND DEAL WITH SPACES FOR NAMES!
-                cout << "Please enter the amount you would like to transfer:" << endl;
-                cin >> amount;
-                cout << "Please enter your name:" << endl;
+                cout << "Please enter the amount you would like to transfer: ";
+                while(!(cin >> amount)) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "Only integer amounts are allowed. Try again: ";
+                }
+                cout << "Please enter your name: ";
                 cin >> sender;
-                cout << "Please enter the receiver's name:" << endl;
+                cout << "Please enter the receiver's name: ";
                 cin >> receiver;
                 t_chain->addTransaction(amount, sender, receiver);
-                cout << "Transaction added." << endl;
+                cout << "Transaction added.\n\n\n" << endl;
                 break;
             case '2':
                 cout << "Please enter the sender's name:" << endl;
