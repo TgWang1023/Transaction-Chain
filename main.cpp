@@ -61,6 +61,8 @@ int main() {
             case '0':
                 cout << "Goodbye" << endl;
                 exit(0);
+            case 'x':
+                break;
             default:
                 cout << "Please enter 1, 2 or 3 to perform an action or 0 to quit" << endl;
         }
